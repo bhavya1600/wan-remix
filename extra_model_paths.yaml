@@ -1,0 +1,15 @@
+# ComfyUI extra model paths — points to the RunPod Network Volume.
+# The volume is mounted at /runpod-volume inside serverless workers.
+# Folder structure on the volume should be:
+#   /runpod-volume/models/diffusion_models/
+#   /runpod-volume/models/text_encoders/
+#   /runpod-volume/models/vae/
+#   /runpod-volume/models/loras/wan_loras/
+#   /runpod-volume/models/loras/wan_loras/NSFW/
+
+wan_network_volume:
+    base_path: /runpod-volume
+    diffusion_models: models/diffusion_models
+    text_encoders: models/text_encoders
+    vae: models/vae
+    loras: models/loras

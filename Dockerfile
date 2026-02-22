@@ -23,59 +23,11 @@ RUN cd /comfyui/custom_nodes && \
     if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
 # ---------------------------------------------------------------------------- #
-# 3. DOWNLOAD MODELS
+# 3. NETWORK VOLUME — models are pre-loaded on the RunPod Network Volume.
+#    extra_model_paths.yaml tells ComfyUI to look at /runpod-volume for all
+#    diffusion models, text encoders, VAE, and LoRAs at runtime.
 # ---------------------------------------------------------------------------- #
-
-# --- VAE ---
-RUN comfy model download \
-    --url https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/vae/wan_2.1_vae.safetensors \
-    --relative-path models/vae \
-    --filename wan_2.1_vae.safetensors
-
-# --- CLIP / Text Encoder (UMT5-XXL) ---
-# TODO: Replace with the correct URL for your nsfw_wan_umt5-xxl_bf16_fixed.safetensors
-RUN comfy model download \
-    --url https://huggingface.co/YOUR_REPO/resolve/main/nsfw_wan_umt5-xxl_bf16_fixed.safetensors \
-    --relative-path models/text_encoders \
-    --filename nsfw_wan_umt5-xxl_bf16_fixed.safetensors
-
-# --- Diffusion Models (High & Low Lighting) ---
-# TODO: Replace with the correct URLs for your WAN 14B NSFW models
-RUN comfy model download \
-    --url https://huggingface.co/YOUR_REPO/resolve/main/Wan2.2_Remix_NSFW_i2v_14b_high_lighting_fp8_e4m3fn_v2.1.safetensors \
-    --relative-path models/diffusion_models \
-    --filename Wan2.2_Remix_NSFW_i2v_14b_high_lighting_fp8_e4m3fn_v2.1.safetensors
-
-RUN comfy model download \
-    --url https://huggingface.co/YOUR_REPO/resolve/main/Wan2.2_Remix_NSFW_i2v_14b_low_lighting_fp8_e4m3fn_v2.1.safetensors \
-    --relative-path models/diffusion_models \
-    --filename Wan2.2_Remix_NSFW_i2v_14b_low_lighting_fp8_e4m3fn_v2.1.safetensors
-
-# --- LoRAs (DR34ML4Y NSFW - High & Low) ---
-# TODO: Replace with the correct URLs
-RUN mkdir -p /comfyui/models/loras/wan_loras/NSFW
-
-RUN comfy model download \
-    --url https://huggingface.co/YOUR_REPO/resolve/main/DR34ML4Y_I2V_14B_HIGH_V2.safetensors \
-    --relative-path models/loras/wan_loras/NSFW \
-    --filename DR34ML4Y_I2V_14B_HIGH_V2.safetensors
-
-RUN comfy model download \
-    --url https://huggingface.co/YOUR_REPO/resolve/main/DR34ML4Y_I2V_14B_LOW_V2.safetensors \
-    --relative-path models/loras/wan_loras/NSFW \
-    --filename DR34ML4Y_I2V_14B_LOW_V2.safetensors
-
-# --- LoRAs (LightX2V 4-Step Acceleration - High & Low Noise) ---
-# TODO: Replace with the correct URLs
-RUN comfy model download \
-    --url https://huggingface.co/YOUR_REPO/resolve/main/wan2.2_i2v_lightx2v_4steps_lora_v1_high_noise.safetensors \
-    --relative-path models/loras/wan_loras \
-    --filename wan2.2_i2v_lightx2v_4steps_lora_v1_high_noise.safetensors
-
-RUN comfy model download \
-    --url https://huggingface.co/YOUR_REPO/resolve/main/wan2.2_i2v_lightx2v_4steps_lora_v1_low_noise.safetensors \
-    --relative-path models/loras/wan_loras \
-    --filename wan2.2_i2v_lightx2v_4steps_lora_v1_low_noise.safetensors
+COPY extra_model_paths.yaml /comfyui/extra_model_paths.yaml
 
 # ---------------------------------------------------------------------------- #
 # 4. SERVERLESS SETUP
