@@ -13,8 +13,11 @@ RUN comfy node install --exit-on-fail comfyui-kjnodes
 # Video Helper Suite — VHS_VideoCombine
 RUN comfy node install --exit-on-fail comfyui-videohelpersuite
 
-# Aspect Ratio / Crop / Sharpen — FastUnsharpSharpen
-RUN comfy node install --exit-on-fail comfyui-aspect-ratio-crop-node
+# Aspect Ratio / Crop / Sharpen — FastUnsharpSharpen (not in registry, use git)
+RUN cd /comfyui/custom_nodes && \
+    git clone https://github.com/vrgamegirl19/comfyui-vrgamedevgirl.git && \
+    cd comfyui-vrgamedevgirl && \
+    if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
 # PainterI2VAdvanced — Image-to-Video conditioning
 RUN cd /comfyui/custom_nodes && \
