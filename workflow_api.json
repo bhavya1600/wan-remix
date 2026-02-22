@@ -1,0 +1,222 @@
+{
+  "1": {
+    "inputs": {
+      "unet_name": "Wan2.2_Remix_NSFW_i2v_14b_high_lighting_fp8_e4m3fn_v2.1.safetensors",
+      "weight_dtype": "fp8_e4m3fn"
+    },
+    "class_type": "UNETLoader",
+    "_meta": { "title": "UNETLoader (High Lighting)" }
+  },
+  "2": {
+    "inputs": {
+      "unet_name": "Wan2.2_Remix_NSFW_i2v_14b_low_lighting_fp8_e4m3fn_v2.1.safetensors",
+      "weight_dtype": "fp8_e4m3fn"
+    },
+    "class_type": "UNETLoader",
+    "_meta": { "title": "UNETLoader (Low Lighting)" }
+  },
+  "3": {
+    "inputs": {
+      "clip_name": "nsfw_wan_umt5-xxl_bf16_fixed.safetensors",
+      "type": "wan",
+      "device": "cpu"
+    },
+    "class_type": "CLIPLoader",
+    "_meta": { "title": "CLIPLoader" }
+  },
+  "4": {
+    "inputs": {
+      "vae_name": "wan_2.1_vae.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": { "title": "VAELoader" }
+  },
+  "5": {
+    "inputs": {
+      "image": "input.png"
+    },
+    "class_type": "LoadImage",
+    "_meta": { "title": "LoadImage" }
+  },
+  "6": {
+    "inputs": {
+      "image": ["5", 0],
+      "width": 1024,
+      "height": 1024,
+      "upscale_method": "nearest-exact",
+      "keep_proportion": "resize",
+      "pad_color": "0, 0, 0",
+      "crop_position": "center",
+      "divisible_by": 16
+    },
+    "class_type": "ImageResizeKJv2",
+    "_meta": { "title": "ImageResizeKJv2" }
+  },
+  "7": {
+    "inputs": {
+      "text": "A cinematic video clip",
+      "clip": ["3", 0]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": { "title": "CLIP Text Encode (Positive)" }
+  },
+  "8": {
+    "inputs": {
+      "text": "色调艳丽，过曝，静态，细节模糊不清，字幕，风格，作品，画作，画面，静止，整体发灰，最差质量，低质量，JPEG压缩残留，丑陋的，残缺的，多余的手指，画得不好的手部，画得不好的脸部，畸形的，毁容的，形态畸形的肢体，手指融合，静止不动的画面，杂乱的背景，三条腿，背景人很多，倒着走",
+      "clip": ["3", 0]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": { "title": "CLIP Text Encode (Negative)" }
+  },
+  "9": {
+    "inputs": {
+      "lora_name": "wan_loras/NSFW/DR34ML4Y_I2V_14B_HIGH_V2.safetensors",
+      "strength_model": 0.5,
+      "model": ["1", 0]
+    },
+    "class_type": "LoraLoaderModelOnly",
+    "_meta": { "title": "LoRA High - DR34ML4Y" }
+  },
+  "10": {
+    "inputs": {
+      "lora_name": "wan_loras/wan2.2_i2v_lightx2v_4steps_lora_v1_high_noise.safetensors",
+      "strength_model": 0.5,
+      "model": ["9", 0]
+    },
+    "class_type": "LoraLoaderModelOnly",
+    "_meta": { "title": "LoRA High - LightX2V 4-Step" }
+  },
+  "11": {
+    "inputs": {
+      "lora_name": "wan_loras/NSFW/DR34ML4Y_I2V_14B_LOW_V2.safetensors",
+      "strength_model": 0.5,
+      "model": ["2", 0]
+    },
+    "class_type": "LoraLoaderModelOnly",
+    "_meta": { "title": "LoRA Low - DR34ML4Y" }
+  },
+  "12": {
+    "inputs": {
+      "lora_name": "wan_loras/wan2.2_i2v_lightx2v_4steps_lora_v1_low_noise.safetensors",
+      "strength_model": 0.5,
+      "model": ["11", 0]
+    },
+    "class_type": "LoraLoaderModelOnly",
+    "_meta": { "title": "LoRA Low - LightX2V 4-Step" }
+  },
+  "13": {
+    "inputs": {
+      "shift": 12,
+      "model": ["10", 0]
+    },
+    "class_type": "ModelSamplingSD3",
+    "_meta": { "title": "ModelSamplingSD3 (High)" }
+  },
+  "14": {
+    "inputs": {
+      "shift": 12,
+      "model": ["12", 0]
+    },
+    "class_type": "ModelSamplingSD3",
+    "_meta": { "title": "ModelSamplingSD3 (Low)" }
+  },
+  "15": {
+    "inputs": {
+      "positive": ["7", 0],
+      "negative": ["8", 0],
+      "vae": ["4", 0],
+      "start_image": ["6", 0],
+      "width": ["6", 1],
+      "height": ["6", 2],
+      "length": 121,
+      "batch_size": 1,
+      "motion_amplitude": 1.4,
+      "color_protect": true,
+      "correct_strength": 0.01
+    },
+    "class_type": "PainterI2VAdvanced",
+    "_meta": { "title": "PainterI2VAdvanced" }
+  },
+  "16": {
+    "inputs": {
+      "model": ["13", 0],
+      "positive": ["15", 0],
+      "negative": ["15", 1],
+      "latent_image": ["15", 4],
+      "add_noise": "enable",
+      "noise_seed": 793718524748683,
+      "steps": 8,
+      "cfg": 1,
+      "sampler_name": "uni_pc",
+      "scheduler": "beta",
+      "start_at_step": 0,
+      "end_at_step": 4,
+      "return_with_leftover_noise": "enable"
+    },
+    "class_type": "KSamplerAdvanced",
+    "_meta": { "title": "KSampler (First Pass - High)" }
+  },
+  "17": {
+    "inputs": {
+      "any_input": ["16", 0],
+      "empty_cache": true,
+      "gc_collect": true,
+      "unload_all_models": false
+    },
+    "class_type": "VRAM_Debug",
+    "_meta": { "title": "VRAM_Debug" }
+  },
+  "18": {
+    "inputs": {
+      "model": ["14", 0],
+      "positive": ["15", 2],
+      "negative": ["15", 3],
+      "latent_image": ["17", 0],
+      "add_noise": "disable",
+      "noise_seed": 793718524748683,
+      "steps": 8,
+      "cfg": 1,
+      "sampler_name": "uni_pc",
+      "scheduler": "beta",
+      "start_at_step": 4,
+      "end_at_step": 10000,
+      "return_with_leftover_noise": "disable"
+    },
+    "class_type": "KSamplerAdvanced",
+    "_meta": { "title": "KSampler (Second Pass - Low)" }
+  },
+  "19": {
+    "inputs": {
+      "samples": ["18", 0],
+      "vae": ["4", 0]
+    },
+    "class_type": "VAEDecode",
+    "_meta": { "title": "VAEDecode" }
+  },
+  "20": {
+    "inputs": {
+      "images": ["19", 0],
+      "strength": 0.5,
+      "use_gpu": false
+    },
+    "class_type": "FastUnsharpSharpen",
+    "_meta": { "title": "FastUnsharpSharpen" }
+  },
+  "21": {
+    "inputs": {
+      "images": ["20", 0],
+      "frame_rate": 21,
+      "loop_count": 0,
+      "filename_prefix": "wan_output",
+      "format": "video/h264-mp4",
+      "pix_fmt": "yuv420p",
+      "crf": 19,
+      "save_metadata": true,
+      "trim_to_audio": false,
+      "pingpong": false,
+      "save_output": true
+    },
+    "class_type": "VHS_VideoCombine",
+    "_meta": { "title": "VHS_VideoCombine" }
+  }
+}
