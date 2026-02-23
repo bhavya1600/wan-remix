@@ -1,0 +1,100 @@
+2026-02-23T23:06:39.645079079Z ==========
+2026-02-23T23:06:39.645082899Z == CUDA ==
+2026-02-23T23:06:39.645085419Z ==========
+2026-02-23T23:06:39.652644888Z CUDA Version 12.6.3
+2026-02-23T23:06:39.655613829Z Container image Copyright (c) 2016-2023, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+2026-02-23T23:06:39.655886740Z This container image and its contents are governed by the NVIDIA Deep Learning Container License.
+2026-02-23T23:06:39.655890100Z By pulling and using the container, you accept the terms and conditions of this license:
+2026-02-23T23:06:39.655893250Z https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license
+2026-02-23T23:06:39.655898980Z A copy of this license is made available in this container at /NGC-DL-CONTAINER-LICENSE for your convenience.
+2026-02-23T23:06:39.863660872Z Adding extra search path diffusion_models /runpod-volume/models/diffusion_models
+2026-02-23T23:06:39.863680102Z Adding extra search path text_encoders /runpod-volume/models/text_encoders
+2026-02-23T23:06:39.863682922Z Adding extra search path vae /runpod-volume/models/vae
+2026-02-23T23:06:39.863685922Z Adding extra search path loras /runpod-volume/models/loras
+2026-02-23T23:06:41.216891100Z [START] Security scan
+2026-02-23T23:06:41.216946520Z [DONE] Security scan
+2026-02-23T23:06:41.216950170Z ## ComfyUI-Manager: installing dependencies done.
+2026-02-23T23:06:41.216953720Z ** ComfyUI startup time: 2026-02-23 23:06:41.216
+2026-02-23T23:06:41.216956760Z ** Platform: Linux
+2026-02-23T23:06:41.216971710Z ** Python version: 3.12.3 (main, Nov  6 2025, 13:44:16) [GCC 13.3.0]
+2026-02-23T23:06:41.217054090Z ** Python executable: /opt/venv/bin/python
+2026-02-23T23:06:41.217090570Z ** ComfyUI Path: /comfyui
+2026-02-23T23:06:41.217167441Z ** ComfyUI Base Folder Path: /comfyui
+2026-02-23T23:06:41.217217261Z ** User directory: /comfyui/user
+2026-02-23T23:06:41.217340002Z ** ComfyUI-Manager config path: /comfyui/user/__manager/config.ini
+2026-02-23T23:06:41.217402852Z ** Log path: /comfyui/user/comfyui.log
+2026-02-23T23:06:41.775591095Z --- Starting Serverless Worker |  Version 1.8.1 ---
+2026-02-23T23:06:42.035603644Z Prestartup times for custom nodes:
+2026-02-23T23:06:42.035610294Z    2.2 seconds: /comfyui/custom_nodes/ComfyUI-Manager
+2026-02-23T23:06:42.934681231Z {"requestId": null, "message": "Jobs in queue: 1", "level": "INFO"}
+2026-02-23T23:06:42.934725871Z {"requestId": null, "message": "Jobs in progress: 1", "level": "INFO"}
+2026-02-23T23:06:42.934738811Z {"requestId": "022ef13f-ffd1-46e9-a4f4-240bcd134b44-u1", "message": "Started.", "level": "INFO"}
+2026-02-23T23:06:44.243561841Z Checkpoint files will always be loaded safely.
+2026-02-23T23:06:44.621222054Z Total VRAM 32120 MB, total RAM 967512 MB
+2026-02-23T23:06:44.621353874Z pytorch version: 2.9.1+cu128
+2026-02-23T23:06:44.622298187Z Set vram state to: NORMAL_VRAM
+2026-02-23T23:06:44.622662829Z Device: cuda:0 NVIDIA GeForce RTX 5090 : cudaMallocAsync
+2026-02-23T23:06:44.622903279Z Using async weight offloading with 2 streams
+2026-02-23T23:06:44.623039380Z Enabled pinned memory 919136.0
+2026-02-23T23:06:44.645713065Z working around nvidia conv3d memory bug.
+2026-02-23T23:06:46.537322181Z Using pytorch attention
+2026-02-23T23:06:49.503883746Z Python version: 3.12.3 (main, Nov  6 2025, 13:44:16) [GCC 13.3.0]
+2026-02-23T23:06:49.503969816Z ComfyUI version: 0.6.0
+2026-02-23T23:06:49.507439779Z ComfyUI frontend version: 1.34.9
+2026-02-23T23:06:49.508776323Z [Prompt Server] web root: /opt/venv/lib/python3.12/site-packages/comfyui_frontend_package/static
+2026-02-23T23:06:50.349220209Z Total VRAM 32120 MB, total RAM 967512 MB
+2026-02-23T23:06:50.349347849Z pytorch version: 2.9.1+cu128
+2026-02-23T23:06:50.349633851Z Set vram state to: NORMAL_VRAM
+2026-02-23T23:06:50.349649712Z Device: cuda:0 NVIDIA GeForce RTX 5090 : cudaMallocAsync
+2026-02-23T23:06:50.349773862Z Using async weight offloading with 2 streams
+2026-02-23T23:06:50.349882462Z Enabled pinned memory 919136.0
+2026-02-23T23:06:51.081462358Z ### Loading: ComfyUI-Manager (V3.39)
+2026-02-23T23:06:51.081940949Z [ComfyUI-Manager] network_mode: public
+2026-02-23T23:06:51.082054530Z [ComfyUI-Manager] ComfyUI per-queue preview override detected (PR #11261). Manager's preview method feature is disabled. Use ComfyUI's --preview-method CLI option or 'Settings > Execution > Live preview method'.
+2026-02-23T23:06:51.132823111Z ### ComfyUI Revision: 4431 [e4c61d75] *DETACHED | Released on '2025-12-23'
+2026-02-23T23:06:51.249302630Z [ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/alter-list.json
+2026-02-23T23:06:51.256859708Z [ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/model-list.json
+2026-02-23T23:06:51.301017174Z [ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/custom-node-list.json
+2026-02-23T23:06:51.319955006Z [ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/github-stats.json
+2026-02-23T23:06:51.353959254Z [ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/extension-node-map.json
+2026-02-23T23:06:51.947943311Z __     ______   ____                      ____              ____ _      _
+2026-02-23T23:06:51.947949401Z \ \   / /  _ \ / ___| __ _ _ __ ___   ___|  _ \  _____   __/ ___(_)_ __| |
+2026-02-23T23:06:51.947954411Z  \ \ / /| |_) | |  _ / _` | '_ ` _ \ / _ \ | | |/ _ \ \ / / |  _| | '__| |
+2026-02-23T23:06:51.947958711Z   \ V / |  _ <| |_| | (_| | | | | | |  __/ |_| |  __/\ V /| |_| | | |  | |
+2026-02-23T23:06:51.947963271Z    \_/  |_| \_\\____|\__,_|_| |_| |_|\___|____/ \___| \_/  \____|_|_|  |_|
+2026-02-23T23:06:51.947972101Z              🎮 VRGameDevGirl custom nodes loaded successfully! 🎞️
+2026-02-23T23:06:53.378569060Z Import times for custom nodes:
+2026-02-23T23:06:53.378575240Z    0.0 seconds: /comfyui/custom_nodes/websocket_image_save.py
+2026-02-23T23:06:53.378580600Z    0.0 seconds: /comfyui/custom_nodes/ComfyUI-PainterI2Vadvanced
+2026-02-23T23:06:53.378585520Z    0.1 seconds: /comfyui/custom_nodes/ComfyUI-Manager
+2026-02-23T23:06:53.378662731Z    0.1 seconds: /comfyui/custom_nodes/comfyui-kjnodes
+2026-02-23T23:06:53.378701771Z    0.2 seconds: /comfyui/custom_nodes/comfyui-videohelpersuite
+2026-02-23T23:06:53.378708271Z    1.9 seconds: /comfyui/custom_nodes/comfyui-vrgamedevgirl
+2026-02-23T23:06:54.088122953Z Context impl SQLiteImpl.
+2026-02-23T23:06:54.088154603Z Will assume non-transactional DDL.
+2026-02-23T23:06:54.089170406Z No target revision found.
+2026-02-23T23:06:54.134018775Z Starting server
+2026-02-23T23:06:54.134293217Z To see the GUI go to: http://0.0.0.0:8188
+2026-02-23T23:06:54.975331235Z got prompt
+2026-02-23T23:06:54.982144630Z Failed to validate prompt for output 21:
+2026-02-23T23:06:54.982167330Z * UNETLoader 2:
+2026-02-23T23:06:54.982174550Z   - Value not in list: unet_name: 'Wan2.2_Remix_NSFW_i2v_14b_low_lighting_fp8_e4m3fn_v2.1.safetensors' not in []
+2026-02-23T23:06:54.982180840Z * LoraLoaderModelOnly 11:
+2026-02-23T23:06:54.982186770Z   - Value not in list: lora_name: 'wan_loras/NSFW/DR34ML4Y_I2V_14B_LOW_V2.safetensors' not in []
+2026-02-23T23:06:54.982192620Z * LoraLoaderModelOnly 12:
+2026-02-23T23:06:54.982209560Z   - Value not in list: lora_name: 'wan_loras/wan2.2_i2v_lightx2v_4steps_lora_v1_low_noise.safetensors' not in []
+2026-02-23T23:06:54.982214590Z * UNETLoader 1:
+2026-02-23T23:06:54.982317171Z   - Value not in list: unet_name: 'Wan2.2_Remix_NSFW_i2v_14b_high_lighting_fp8_e4m3fn_v2.1.safetensors' not in []
+2026-02-23T23:06:54.982330571Z * LoraLoaderModelOnly 9:
+2026-02-23T23:06:54.982346201Z   - Value not in list: lora_name: 'wan_loras/NSFW/DR34ML4Y_I2V_14B_HIGH_V2.safetensors' not in []
+2026-02-23T23:06:54.982469571Z * LoraLoaderModelOnly 10:
+2026-02-23T23:06:54.982477221Z   - Value not in list: lora_name: 'wan_loras/wan2.2_i2v_lightx2v_4steps_lora_v1_high_noise.safetensors' not in []
+2026-02-23T23:06:54.982483171Z * VAELoader 4:
+2026-02-23T23:06:54.982497891Z   - Value not in list: vae_name: 'wan_2.1_vae.safetensors' not in ['pixel_space']
+2026-02-23T23:06:54.982590732Z * CLIPLoader 3:
+2026-02-23T23:06:54.982620952Z   - Value not in list: clip_name: 'nsfw_wan_umt5-xxl_bf16_fixed.safetensors' not in []
+2026-02-23T23:06:54.982645592Z Output will be ignored
+2026-02-23T23:06:54.982656892Z invalid prompt: {'type': 'prompt_outputs_failed_validation', 'message': 'Prompt outputs failed validation', 'details': '', 'extra_info': {}}
+2026-02-23T23:06:55.247043688Z FETCH ComfyRegistry Data: 5/126
+2026-02-23T23:06:55.292831371Z {"requestId": "022ef13f-ffd1-46e9-a4f4-240bcd134b44-u1", "message": "Finished.", "level": "INFO"}
+2026-02-23T23:06:58.940046979Z FETCH ComfyRegistry Data: 10/126
