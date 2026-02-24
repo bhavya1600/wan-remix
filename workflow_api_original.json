@@ -68,10 +68,46 @@
     "class_type": "CLIPTextEncode",
     "_meta": { "title": "CLIP Text Encode (Negative)" }
   },
+  "9": {
+    "inputs": {
+      "lora_name": "DR34ML4Y_I2V_14B_HIGH_V2.safetensors",
+      "strength_model": 0.5,
+      "model": ["1", 0]
+    },
+    "class_type": "LoraLoaderModelOnly",
+    "_meta": { "title": "LoRA High - DR34ML4Y" }
+  },
+  "10": {
+    "inputs": {
+      "lora_name": "wan2.2_i2v_lightx2v_4steps_lora_v1_high_noise.safetensors",
+      "strength_model": 0.5,
+      "model": ["9", 0]
+    },
+    "class_type": "LoraLoaderModelOnly",
+    "_meta": { "title": "LoRA High - LightX2V 4-Step" }
+  },
+  "11": {
+    "inputs": {
+      "lora_name": "DR34ML4Y_I2V_14B_LOW_V2.safetensors",
+      "strength_model": 0.5,
+      "model": ["2", 0]
+    },
+    "class_type": "LoraLoaderModelOnly",
+    "_meta": { "title": "LoRA Low - DR34ML4Y" }
+  },
+  "12": {
+    "inputs": {
+      "lora_name": "wan2.2_i2v_lightx2v_4steps_lora_v1_low_noise.safetensors",
+      "strength_model": 0.5,
+      "model": ["11", 0]
+    },
+    "class_type": "LoraLoaderModelOnly",
+    "_meta": { "title": "LoRA Low - LightX2V 4-Step" }
+  },
   "13": {
     "inputs": {
       "shift": 12,
-      "model": ["1", 0]
+      "model": ["10", 0]
     },
     "class_type": "ModelSamplingSD3",
     "_meta": { "title": "ModelSamplingSD3 (High)" }
@@ -79,7 +115,7 @@
   "14": {
     "inputs": {
       "shift": 12,
-      "model": ["2", 0]
+      "model": ["12", 0]
     },
     "class_type": "ModelSamplingSD3",
     "_meta": { "title": "ModelSamplingSD3 (Low)" }
