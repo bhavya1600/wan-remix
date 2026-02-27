@@ -68,28 +68,10 @@
     "class_type": "CLIPTextEncode",
     "_meta": { "title": "CLIP Text Encode (Negative)" }
   },
-  "10": {
-    "inputs": {
-      "lora_name": "wan2.2_i2v_lightx2v_4steps_lora_v1_high_noise.safetensors",
-      "strength_model": 0.5,
-      "model": ["1", 0]
-    },
-    "class_type": "LoraLoaderModelOnly",
-    "_meta": { "title": "LoRA High - LightX2V 4-Step" }
-  },
-  "12": {
-    "inputs": {
-      "lora_name": "wan2.2_i2v_lightx2v_4steps_lora_v1_low_noise.safetensors",
-      "strength_model": 0.5,
-      "model": ["2", 0]
-    },
-    "class_type": "LoraLoaderModelOnly",
-    "_meta": { "title": "LoRA Low - LightX2V 4-Step" }
-  },
   "13": {
     "inputs": {
       "shift": 8,
-      "model": ["10", 0]
+      "model": ["1", 0]
     },
     "class_type": "ModelSamplingSD3",
     "_meta": { "title": "ModelSamplingSD3 (High)" }
@@ -97,7 +79,7 @@
   "14": {
     "inputs": {
       "shift": 8,
-      "model": ["12", 0]
+      "model": ["2", 0]
     },
     "class_type": "ModelSamplingSD3",
     "_meta": { "title": "ModelSamplingSD3 (Low)" }
